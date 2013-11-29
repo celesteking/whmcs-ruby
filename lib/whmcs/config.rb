@@ -9,6 +9,9 @@ module WHMCS
 
     # The WHMCS API URL
     attr_accessor :api_url
+    
+    # To be able to bypass SSL cert verification
+    attr_accessor :verify_ssl
 
     # Create a new config object
     def initialize
