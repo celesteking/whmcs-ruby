@@ -28,6 +28,7 @@ module WHMCS
 
       if url.port == 443
         http.use_ssl = true
+        http.verify_mode = WHMCS.config.verify_ssl ? OpenSSL::SSL::VERIFY_PEER : OpenSSL::SSL::VERIFY_NONE
       end
 
       req = Net::HTTP::Post.new(url.path)
@@ -46,24 +47,6 @@ module WHMCS
       else
         Hash[raw.split(';').map { |line| line.split('=') }]
       end
-    end
-  end
-end
-
-# Fix Net::HTTP so we dont get
-# warning: peer certificate won't be verified in this SSL session
-#
-# See:
-#
-# http://www.5dollarwhitebox.org/drupal/node/64
-module Net #:nodoc:all
-  class HTTP
-    alias_method :old_initialize, :initialize
-
-    def initialize(*args)
-      old_initialize(*args)
-      @ssl_context = OpenSSL::SSL::SSLContext.new
-      @ssl_context.verify_mode = OpenSSL::SSL::VERIFY_NONE
     end
   end
 end
