@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files           += Dir['lib/**/*']
   s.files           += Dir['test/**/*']
 
-  s.add_dependency('crack', '= 0.1.8')
+  s.add_dependency('crack', '~> 0.4.0')
 
   s.add_development_dependency('shoulda')
 
