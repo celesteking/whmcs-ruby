@@ -18,6 +18,7 @@ module WHMCS
       @api_username = 'example_api_user'
       @api_password = 'example_api_pass'
       @api_url      = 'http://example.com/api.php'
+      @verify_ssl   = true
     end
   end
 end
