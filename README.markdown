@@ -18,6 +18,9 @@ whmcs-ruby provides Ruby bindings for the [WHMCS API](http://wiki.whmcs.com/API:
 See the [documentation](http://dotblock.github.com/whmcs-ruby/) for more
 details.
 
+## Tests
+
+Are broken.
 
 ## Installation
 
