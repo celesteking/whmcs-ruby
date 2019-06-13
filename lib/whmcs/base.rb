@@ -35,7 +35,7 @@ module WHMCS
       req.set_form_data(params)
 
       res = http.start { |http| http.request(req) }
-      parse_response(res.body)
+      parse_response(res.body.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: ''))
     end
 
     # Converts the API response to a Hash
